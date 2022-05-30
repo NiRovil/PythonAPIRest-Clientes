@@ -1,5 +1,9 @@
-def cpf(cpf):
-    return len(cpf) != 11
+import re
+from validate_docbr import CPF
+
+def cpf(numero_cpf):
+    cpf = CPF()
+    return cpf.validate(numero_cpf)
 
 def nome(nome):
     return nome.isalpha()
@@ -8,4 +12,6 @@ def rg(rg):
     return len(rg) != 9
 
 def celular(celular):
-    return len(celular) < 11
+    modelo = '[0-9]{2} [0-9]{5}-[0-9]{4}'
+    resposta = re.findall(modelo, celular)
+    return resposta

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'clientes'
+    'clientes',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE':10,
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
